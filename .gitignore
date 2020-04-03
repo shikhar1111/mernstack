@@ -1,0 +1,4 @@
+./projbackend/node_modules
+./testback
+./testfront
+./projbackend/.env
