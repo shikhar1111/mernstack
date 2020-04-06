@@ -52,12 +52,12 @@ userSchema.virtual("password")
         return this._password;
     });
 
-userSchema.method = {
+userSchema.methods = {
     authenticate: function (plain_password) {
         return this.securePassword(plain_password) === this.encrypted_password
     },
     securePassword: function (plain_password) {
-        if (!password) return "";
+        if (!plain_password) return "";
         try {
             return crypto.createHmac('sha256', this.salt)
                 .update(plain_password)
