@@ -15,11 +15,11 @@ const Base = ({title = "My Title", description = "My description", className = "
                 </div>
             </div>
             <footer className="footer bg-dark mt-auto py-3">
-                <div className="container-fluid text-white text-center py-3">
+                <div className="container-fluid text-white text-center py-4 bg-success">
                     <h4>If you got any questions feel free to ask!!</h4>
                     <button className="btn btn-warning btn-lg">Contact US</button>
                 </div>
-                <div className="container">
+                <div className="container text-center pt-2">
                     <span className="text-muted">An amazing <span className="text-white"> MERN</span>  BOOTCAMP</span>
                 </div>
             </footer>
