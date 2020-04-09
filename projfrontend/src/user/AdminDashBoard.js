@@ -16,6 +16,9 @@ const AdminDashboard = () => {
                         <Link className="nav-link text-success" to="/admin/create/category">Create Categories</Link>
                     </li>
                     <li className="list-group-item">
+                        <Link className="nav-link text-success" to="/admin/categories">Manage Categories</Link>
+                    </li>
+                    <li className="list-group-item">
                         <Link className="nav-link text-success" to="/admin/create/product">Create Products</Link>
                     </li>
                     <li className="list-group-item">
