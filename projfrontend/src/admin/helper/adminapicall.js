@@ -87,7 +87,7 @@ export const getProduct = productId => {
 //update a product
 export const updateProduct = (productId, userId, token, product) => {
     return fetch(`${API}/product/${productId}/${userId}`, {
-        method: "POST",
+        method: "PUT",
         headers: {
             Accept: "application-json",
             "Authorization": `Bearer ${token}`
