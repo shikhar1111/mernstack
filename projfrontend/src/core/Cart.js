@@ -7,6 +7,7 @@ import {loadCart} from "./helper/carthelper";
 const Cart = () => {
 
     const [products, setProducts] = useState([]);
+    const [reload, setReload] = useState(false);
 
     const loadAllProducts = () => {
         return (
@@ -14,7 +15,8 @@ const Cart = () => {
                 <h2>This section is to load products</h2>
                 {products.map((product, index) => {
                     return (
-                        <Card key={index} product={product} removeFromCart={true} addToCart={false}/>
+                        <Card key={index} product={product} removeFromCart={true} addToCart={false}
+                              setReload={setReload} reload={reload}/>
                     )
                 })}
             </div>
@@ -23,7 +25,7 @@ const Cart = () => {
 
     useEffect(() => {
         setProducts(loadCart())
-    });
+    }, [reload]);
 
     const loadCheckout = () => {
         return (

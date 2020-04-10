@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import ImageHelper from "./helper/ImageHepler";
-import Redirect from "react-router-dom/es/Redirect";
-import {addItemCart} from "./helper/carthelper";
+import {Redirect} from "react-router-dom";
+import {addItemCart, removeItemFromCart} from "./helper/carthelper";
 
-const Card = ({product, addToCart = true, removeFromCart = false}) => {
+const Card = ({product, addToCart = true, removeFromCart = false, setReload = f => f, reload = undefined}) => {
 
     const [redirect, setRedirect] = useState(false);
-    const [count,setCount] = useState(product.count);
+    const [count, setCount] = useState(product.count);
 
     const cartTitle = product ? product.name : "A photo from pexels";
     const cartDescription = product ? product.description : "Default Description";
@@ -19,7 +19,7 @@ const Card = ({product, addToCart = true, removeFromCart = false}) => {
     };
 
     const addCart = () => {
-        addItemCart(product,() => setRedirect(true))
+        addItemCart(product, () => setRedirect(true))
     };
 
     const showAddtoCart = addToCart => {
@@ -41,6 +41,8 @@ const Card = ({product, addToCart = true, removeFromCart = false}) => {
             removeFromCart && (
                 <button
                     onClick={() => {
+                        removeItemFromCart(product._id);
+                        setReload(!reload);
                     }}
                     className="btn btn-block btn-outline-danger mt-2 mb-2"
                 >
